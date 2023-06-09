@@ -1,0 +1,87 @@
+
+
+
+
+in setting 
+
+add   -->  'home.apps.HomeConfig',
+   home is app name,  HomeConfig-> change 1st letter to caps (Home)
+
+then  in terminal
+ python manage.py migrate
+
+ to add models
+ in terminal ->   python manage.py makemigrations home
+
+ to update changes of models
+ in terminal  ->  python manage.py migrate
+
+  we can this in migration folder ->0001_initial.py
+
+  from home.models import Item, ToDoList  // to import models
+  t=ToDoList(name="pradeeps List")    // to create obj
+  t.save()                           // to save
+  ToDoList.objects.all()             // display
+  ToDoList.objects.get(id=1) 
+
+>>> t1.item_set.all()
+<QuerySet []>
+ 
+>>> t1.item_set.create(text="go to mall",complete=False)
+<Item: go to mall>
+>>> t1.item_set.all()
+<QuerySet [<Item: go to mall>]>
+>>> 
+
+//  to get objects of model
+
+from home.models import Item,ToDoList
+>>> t=ToDoList.objects
+>>> t.all()
+
+>>> t.filter(name__startswith="pra")
+<QuerySet [<ToDoList: pradeeps List>]>
+
+>>> t.filter(id=1)
+<QuerySet [<ToDoList: pradeeps List>]>
+>>> t.filter(id=3)
+<QuerySet []>
+
+
+//   to delete objects
+
+>>> t.all()
+<QuerySet [<ToDoList: pradeeps List>, <ToDoList: hv's List>]>
+>>>a=t.get(id=20)
+>>> a.delete()
+(3, {'home.Item': 2, 'home.ToDoList': 1})
+>>> t.all()
+<QuerySet [<ToDoList: pradeeps List>]>
+
+
+/// to create superuser
+
+python manage.py createsuperuser
+
+// to add create model to admin dashboard
+  
+   go to admin.py
+
+   import model, and register 
+
+   i.e   from .models import ToDoList,Item
+#  to add model to admin dashboard
+
+# Register your models here.
+
+admin.site.register(ToDoList),
+admin.site.register(Item)
+
+
+
+
+
+/// templates
+  create one templete folder in app(here home), within templete folder create home folder(app name)
+
+  insidde home  craete html file ,,  here observe base and home.html

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block tittle %}Document{% endblock %}</title>
+    {% comment %} by default  content set to Documenet, if can replace with content present in same block in child html {% endcomment %}
+
+    {% comment %} <style type="text/css">
+        .sidenav{
+            
+            height:900px;
+            width:160px;
+            postion: fixed;
+            z-index"1;
+            top:0;   
+            left:0;
+            background-color:#111;
+            overflow-x: :hidden;
+            padding-top:20px;
+         }
+
+         .sidenav a{
+            padding:6px 8px 6px 16px;
+            text-decoration: none;
+            font-size:25px;
+            color:#818181;
+            display:inline-block;
+         }
+
+         .sidenav a:hover{
+            color:#f1f1f1;
+         }
+
+         .main {
+            margin-left:160px;
+            padding: 0px 10px;
+         }
+    </style> {% endcomment %}
+
+   
+</head>
+<body>
+    {% comment %} <p>{{name}}</p>    {% endcomment %}
+  
+    {% comment %} (key)name collecet value from render method in views.py{% endcomment %}
+
+    <div class="sidenav">
+       <a href="/home"> Home</a>
+       <a href="/create"> Create</a>
+       <a href="/3"> view</a>
+
+    </div>
+
+
+    <div id="content" class="main" name="content">
+      <div class="row justify-content-center">
+         <div class="col-8">
+            <h1 class="mt-2"> My Site</h1>
+            {% block content %}
+              {% endblock %}
+         </div>
+      </div>
+
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+</body>
+</html>

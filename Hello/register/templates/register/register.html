@@ -1,0 +1,14 @@
+{%  extends "home/base.html" %}
+
+{% block title  %} create a account {% endblock %}
+
+{% block content  %}
+
+<form method="POST" class="form-group">
+   {% csrf_token %}
+    {{form}}
+    <button type="submit" class="btn btn-success">Register</button>
+
+
+</form>
+{% endblock %}

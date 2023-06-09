@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}
+
+{% comment %} inherit base.html {% endcomment %}
+
+{% block tittle %}
+  pradeep app
+{% endblock %}
+
+{% block content %}
+<h3> create form</h3> 
+<form method="post" action="create" class="form-group">
+    {% csrf_token %}
+    
+    {% comment %} try these in above form.as_ul ,form.as_p {% endcomment %}
+    <div class="input-group mv-3">
+      <div class="input-group-prepend">
+     <button type="submit",name="save"> create New</button>
+     {{formm.name}} 
+    </div>  
+</form>
+{% endblock %}
